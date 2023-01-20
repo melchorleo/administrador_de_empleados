@@ -2,4 +2,4 @@
 
 <h1> Editar Usuarios </h1>
 
-<?php include("../../templates/header.php");?>
+<?php include("../../templates/footer.php");?>
