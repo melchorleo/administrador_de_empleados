@@ -1,3 +1,24 @@
+<?php
+include("../../db.php");
+if($_POST){
+    print_r($_POST);
+    //Recolectamos los datos del metodo POST
+    $nombredelpuesto = (isset($_POST["nombredelpuesto"]) ? $_POST["nombredelpuesto"] : "");
+
+    //Aqui vamos a insertar los datos
+
+    $sentencia = $conexion->prepare("INSERT INTO tbl_puestos(id, nombredelpuesto) VALUES(null,:nombredelpuesto)");
+
+    //Asigando los valores que vienen del metodo POST(Los que vienen del formulario)
+    $sentencia->bindParam(":nombredelpuesto", $nombredelpuesto);
+    $sentencia->execute();
+
+    header("Location:index.php");
+    
+}
+?>
+
+
 <?php include("../../templates/header.php");?>
 <br/>
 <div class="card">
